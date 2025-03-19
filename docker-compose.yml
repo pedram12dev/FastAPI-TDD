@@ -1,0 +1,16 @@
+services:
+  dev-db: 
+    image: postgres:16.1-alpine3.19
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=inventory
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
