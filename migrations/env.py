@@ -9,14 +9,11 @@ from alembic import context
 # access to the values within the .ini file in use.
 config = context.config
 
-# Get the database URL from environment variable
 url_db = os.environ.get("DEV_DATABASE_URL")
 if not url_db:
     raise ValueError("DEV_DATABASE_URL environment variable is not set")
 
-# Set the SQLAlchemy URL in the alembic section
 config.set_main_option("sqlalchemy.url", url_db)
-
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
 if config.config_file_name is not None:
